@@ -109,6 +109,10 @@ namespace PatternRecog.Tests
         [Fact]
         public void GenFiles()
         {
+            foreach (var file in Directory.EnumerateFiles(@"C:\test"))
+            {
+                File.Delete(file);
+            }
             foreach (var path in _Paths)
             {
                 File.WriteAllText(path, path);

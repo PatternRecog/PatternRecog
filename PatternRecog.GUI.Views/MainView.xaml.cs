@@ -24,5 +24,7 @@ namespace PatternRecog.GUI.Views
         {
             InitializeComponent();
         }
+
+        
     }
 }

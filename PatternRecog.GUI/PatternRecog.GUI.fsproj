@@ -25,6 +25,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DocumentationFile>bin\Debug\PatternRecog.GUI.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
+    <StartArguments>C:\test</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -60,14 +61,16 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Chessie">
+      <HintPath>..\packages\Chessie.0.4.0\lib\net40\Chessie.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="MahApps.Metro">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
-    <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="Redux">
@@ -105,6 +108,11 @@
     <ProjectReference Include="..\PatternRecog.GUI.Views\PatternRecog.GUI.Views.csproj">
       <Name>PatternRecog.GUI.Views</Name>
       <Project>{9c708f53-7c93-4122-9094-035e6815bd57}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\PatternRecog\PatternRecog.fsproj">
+      <Name>PatternRecog</Name>
+      <Project>{63cd2bad-6ced-464d-b0e6-772191727d7f}</Project>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:PatternRecog.GUI.Views"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             Title="Pattern Recog">
     <controls:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -20,10 +21,59 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </controls:MetroWindow.Resources>
-    <StackPanel>
-            <TextBlock x:Name="CounterRun"></TextBlock>
-        <Button x:Name="AddButton">+</Button>
-        <Button x:Name="SubButton">-</Button>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <DataGrid x:Name="DataGrid"
+                  AutoGenerateColumns="False"
+                  AllowDrop="True">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="" Binding="{Binding Checked}" />
+                <DataGridTextColumn Header="Video" Binding="{Binding VidFile}" />
+                <DataGridTextColumn Header="Subtitle" Binding="{Binding SubFile}" />
+                <DataGridTextColumn Header="New Subtitle Name" Binding="{Binding NewSubFile}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DockPanel Grid.Row="1" LastChildFill="False">
+            <Button x:Name="BtnRename" Style="{StaticResource AccentedSquareButtonStyle}" DockPanel.Dock="Right">Rename</Button>
+            <Button x:Name="BtnSelectAll" DockPanel.Dock="Left">Select All</Button>
+            <Button x:Name="BtnDeselectAll" DockPanel.Dock="Left">DeSelect All</Button>
+            <Button x:Name="BtnClear" DockPanel.Dock="Left">Clear</Button>
+        </DockPanel>
+    </Grid>
 </controls:MetroWindow>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
