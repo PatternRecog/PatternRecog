@@ -76,7 +76,11 @@ let main argv =
     w.BtnDeselectAll.Click.Add (fun _ -> SetAllChecked false |> dispatch store)
     w.BtnFlyout.Click.Add (fun _ -> w.flyout.IsOpen <- (not w.flyout.IsOpen); ())
 
-    w.DataGrid.Drop.Add (fun args ->
+    w.DragEnter.Add (fun args -> w.DropPanel.Visibility <- Visibility.Visible)
+    let hideDropZone = (fun args -> w.DropPanel.Visibility <- Visibility.Hidden)
+    w.DragLeave.Add hideDropZone
+    w.Drop.Add (fun args ->
+        hideDropZone();
         if args.Data.GetDataPresent(DataFormats.FileDrop)
         then AddPaths (args.Data.GetData(DataFormats.FileDrop) :?> string[]) |> dispatch store )
 

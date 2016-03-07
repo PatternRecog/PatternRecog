@@ -29,13 +29,13 @@
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
             <ToggleButton x:Name="BtnFlyout">
-            <Rectangle Width="20"
+                <Rectangle Width="20"
                    Height="20"
                    Fill="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=Foreground}">
-                <Rectangle.OpacityMask>
-                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_settings}" />
-                </Rectangle.OpacityMask>
-            </Rectangle>
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_settings}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
             </ToggleButton>
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
@@ -60,6 +60,20 @@
             </DataGrid.Columns>
         </DataGrid>
 
+        <Grid x:Name="DropPanel" Grid.Row="0" Visibility="Collapsed" IsHitTestVisible="False" Background="{DynamicResource AccentColorBrush2}">
+            <!--<Grid.Background>
+                <SolidColorBrush Color="{DynamicResource WindowTitleColorBrush}" Opacity="0.4"></SolidColorBrush>
+            </Grid.Background>-->
+            <Rectangle
+                   Width="80"
+                   Height="80"
+                   Fill="{DynamicResource IdealForegroundColorBrush}">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Uniform" Visual="{StaticResource appbar_page_download}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Grid>
+
         <DockPanel Grid.Row="1" LastChildFill="False" Background="{DynamicResource AccentColorBrush}" Height="60">
             <DockPanel.Resources>
                 <Style TargetType="Button" BasedOn="{StaticResource AccentedSquareButtonStyle}">
@@ -74,7 +88,7 @@
             <Button x:Name="BtnDeselectAll" DockPanel.Dock="Left" Margin="3">DeSelect All</Button>
             <Button x:Name="BtnClear" DockPanel.Dock="Left" Margin="3">Clear</Button>
         </DockPanel>
-        
+
         <controls:FlyoutsControl Grid.Row="0" Grid.RowSpan="2">
             <controls:Flyout x:Name="flyout" Header="Settings" Position="Right" Width="200" Theme="Inverse">
                 <StackPanel Margin="5">
