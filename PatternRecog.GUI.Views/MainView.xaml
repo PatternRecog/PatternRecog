@@ -60,16 +60,17 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DockPanel Grid.Row="1" LastChildFill="False" Background="{DynamicResource AccentColorBrush}">
+        <DockPanel Grid.Row="1" LastChildFill="False" Background="{DynamicResource AccentColorBrush}" Height="60">
             <DockPanel.Resources>
                 <Style TargetType="Button" BasedOn="{StaticResource AccentedSquareButtonStyle}">
                     <Style.Setters>
-                    <Setter Property="FontSize" Value="20" />
+                        <Setter Property="Height" Value="30" />
+                        <Setter Property="FontSize" Value="15" />
                     </Style.Setters>
                 </Style>
             </DockPanel.Resources>
-            <Button x:Name="BtnRename" FontSize="20" Style="{StaticResource SquareButtonStyle}" DockPanel.Dock="Right" Margin="3">Rename</Button>
-            <Button x:Name="BtnSelectAll" DockPanel.Dock="Left" Margin="3">Select All</Button>
+            <Button x:Name="BtnRename" FontSize="15" Height="30" Style="{StaticResource SquareButtonStyle}" DockPanel.Dock="Right" Margin="15">Rename</Button>
+            <Button x:Name="BtnSelectAll" DockPanel.Dock="Left" Margin="15,0,0,0">Select All</Button>
             <Button x:Name="BtnDeselectAll" DockPanel.Dock="Left" Margin="3">DeSelect All</Button>
             <Button x:Name="BtnClear" DockPanel.Dock="Left" Margin="3">Clear</Button>
         </DockPanel>
