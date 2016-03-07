@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:PatternRecog.GUI.Views"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
+             d:DesignHeight="300" d:DesignWidth="450"
+                      Height="400" Width="450"
              Title="Pattern Recog"
              GlowBrush="{DynamicResource AccentColorBrush}">
     <controls:MetroWindow.Resources>
@@ -61,19 +62,19 @@
 
         <DockPanel Grid.Row="1" LastChildFill="False" Background="{DynamicResource AccentColorBrush}">
             <DockPanel.Resources>
-                <Style TargetType="Button" BasedOn="{StaticResource SquareButtonStyle}">
+                <Style TargetType="Button" BasedOn="{StaticResource AccentedSquareButtonStyle}">
                     <Style.Setters>
                     <Setter Property="FontSize" Value="20" />
                     </Style.Setters>
                 </Style>
             </DockPanel.Resources>
-            <Button x:Name="BtnRename" FontSize="20" Style="{StaticResource AccentedSquareButtonStyle}" DockPanel.Dock="Right" Margin="3">Rename</Button>
+            <Button x:Name="BtnRename" FontSize="20" Style="{StaticResource SquareButtonStyle}" DockPanel.Dock="Right" Margin="3">Rename</Button>
             <Button x:Name="BtnSelectAll" DockPanel.Dock="Left" Margin="3">Select All</Button>
             <Button x:Name="BtnDeselectAll" DockPanel.Dock="Left" Margin="3">DeSelect All</Button>
             <Button x:Name="BtnClear" DockPanel.Dock="Left" Margin="3">Clear</Button>
         </DockPanel>
         
-        <controls:FlyoutsControl Grid.Row="0">
+        <controls:FlyoutsControl Grid.Row="0" Grid.RowSpan="2">
             <controls:Flyout x:Name="flyout" Header="Settings" Position="Right" Width="200" Theme="Inverse">
                 <StackPanel Margin="5">
                     <TextBlock>General</TextBlock>
