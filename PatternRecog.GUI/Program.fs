@@ -74,6 +74,7 @@ let main argv =
     w.BtnClear.Click.Add (fun _ -> Clear |> dispatch store)
     w.BtnSelectAll.Click.Add (fun _ -> SetAllChecked true |> dispatch store)
     w.BtnDeselectAll.Click.Add (fun _ -> SetAllChecked false |> dispatch store)
+    w.BtnFlyout.Click.Add (fun _ -> w.flyout.IsOpen <- (not w.flyout.IsOpen); ())
 
     w.DataGrid.Drop.Add (fun args ->
         if args.Data.GetDataPresent(DataFormats.FileDrop)

@@ -7,20 +7,38 @@
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             Title="Pattern Recog">
+             Title="Pattern Recog"
+             GlowBrush="{DynamicResource AccentColorBrush}">
     <controls:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/controls.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
                 <!-- Accent and AppTheme setting -->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+
+                <ResourceDictionary Source="Resources/Icons.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </controls:MetroWindow.Resources>
+
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <ToggleButton x:Name="BtnFlyout">
+            <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=Foreground}">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_settings}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+            </ToggleButton>
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -29,7 +47,8 @@
 
         <DataGrid x:Name="DataGrid"
                   AutoGenerateColumns="False"
-                  AllowDrop="True">
+                  AllowDrop="True"
+                  AlternationCount="2">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="" Binding="{Binding Checked}" />
                 <DataGridTextColumn Header="Season" Binding="{Binding Season}" />
@@ -40,14 +59,64 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DockPanel Grid.Row="1" LastChildFill="False">
-            <Button x:Name="BtnRename" Style="{StaticResource AccentedSquareButtonStyle}" DockPanel.Dock="Right">Rename</Button>
-            <Button x:Name="BtnSelectAll" DockPanel.Dock="Left">Select All</Button>
-            <Button x:Name="BtnDeselectAll" DockPanel.Dock="Left">DeSelect All</Button>
-            <Button x:Name="BtnClear" DockPanel.Dock="Left">Clear</Button>
+        <DockPanel Grid.Row="1" LastChildFill="False" Background="{DynamicResource AccentColorBrush}">
+            <DockPanel.Resources>
+                <Style TargetType="Button" BasedOn="{StaticResource SquareButtonStyle}">
+                    <Style.Setters>
+                    <Setter Property="FontSize" Value="20" />
+                    </Style.Setters>
+                </Style>
+            </DockPanel.Resources>
+            <Button x:Name="BtnRename" FontSize="20" Style="{StaticResource AccentedSquareButtonStyle}" DockPanel.Dock="Right" Margin="3">Rename</Button>
+            <Button x:Name="BtnSelectAll" DockPanel.Dock="Left" Margin="3">Select All</Button>
+            <Button x:Name="BtnDeselectAll" DockPanel.Dock="Left" Margin="3">DeSelect All</Button>
+            <Button x:Name="BtnClear" DockPanel.Dock="Left" Margin="3">Clear</Button>
         </DockPanel>
+        
+        <controls:FlyoutsControl Grid.Row="0">
+            <controls:Flyout x:Name="flyout" Header="Settings" Position="Right" Width="200" Theme="Inverse">
+                <StackPanel Margin="5">
+                    <TextBlock>General</TextBlock>
+                    <CheckBox>Dry run</CheckBox>
+                    <TextBlock>Video extensions</TextBlock>
+                    <TextBox></TextBox>
+                </StackPanel>
+            </controls:Flyout>
+        </controls:FlyoutsControl>
     </Grid>
 </controls:MetroWindow>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
