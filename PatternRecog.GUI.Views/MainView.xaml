@@ -32,6 +32,8 @@
                   AllowDrop="True">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="" Binding="{Binding Checked}" />
+                <DataGridTextColumn Header="Season" Binding="{Binding Season}" />
+                <DataGridTextColumn Header="Episode" Binding="{Binding Episode}" />
                 <DataGridTextColumn Header="Video" Binding="{Binding VidFile}" />
                 <DataGridTextColumn Header="Subtitle" Binding="{Binding SubFile}" />
                 <DataGridTextColumn Header="New Subtitle Name" Binding="{Binding NewSubFile}" />
