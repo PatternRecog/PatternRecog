@@ -52,7 +52,11 @@ let reducer state action =
     | SetAllChecked isChecked -> { state with matches = state.matches |> Array.map (fun m -> m.Checked <- isChecked; m) }
 
 let view (w:MainView) (state:Model) =
-    w.DataGrid.ItemsSource <- state.matches |> Seq.ofArray |> System.Collections.Generic.List
+    let l = state.matches |> Seq.ofArray |> System.Collections.Generic.List
+    let cvs = Windows.Data.CollectionViewSource.GetDefaultView l
+    cvs.SortDescriptions.Add(ComponentModel.SortDescription("Season", ComponentModel.ListSortDirection.Ascending))
+    cvs.SortDescriptions.Add(ComponentModel.SortDescription("Episode", ComponentModel.ListSortDirection.Ascending))
+    w.DataGrid.ItemsSource <- cvs
 
 
 [<EntryPoint>]
