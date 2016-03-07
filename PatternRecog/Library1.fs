@@ -12,7 +12,9 @@ type ConfigType = { videosExts : string array
 module Config =
     let loadOrDefault() : ConfigType =
         { videosExts = [| ".avi"; ".mp4" |]
-          numberRegexes = [| @"S(?<season>\d+)E(?<episode>\d+)"; @"(?<season>\d)(?<episode>\d\d)" |]
+          numberRegexes = [| @"S(?<season>\d+)E(?<episode>\d+)"
+                             @"(?<season>\d)(?<episode>\d\d)"
+                             @"(?<season>\d\d?)x(?<episode>\d\d)" |]
           dryRun = false }
 
 type Kind = Video | Subtitle
@@ -24,7 +26,7 @@ type DescType = { path : string
 
 module Desc =
     let parseNumber (s:string) (p:string) : (int * int) option =
-        let m = Regex.Match(s, p)
+        let m = Regex.Match(s, p, RegexOptions.IgnoreCase)
         if not m.Success then None
         else
             match Int32.TryParse m.Groups.["season"].Value,
@@ -32,13 +34,14 @@ module Desc =
             | (true,s),(true,e) -> Some(s,e)
             | _ -> None
 
-    let parse (c:ConfigType) (s:string) : DescType option =
-        let ext = System.IO.Path.GetExtension(s)
-        let num = Array.tryPick (parseNumber s) c.numberRegexes
+    let parse (c:ConfigType) (fullPath:string) : DescType option =
+        let fileName = Path.GetFileNameWithoutExtension fullPath
+        let ext = System.IO.Path.GetExtension(fullPath)
+        let num = Array.tryPick (parseNumber fileName) c.numberRegexes
         match num with
         | None -> None
         | Some(ns,ne) ->
-            { path = s
+            { path = fullPath
               kind = if Array.contains ext c.videosExts then Kind.Video else Kind.Subtitle
               season = ns
               episode = ne } |> Some
