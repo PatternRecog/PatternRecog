@@ -21,6 +21,7 @@ open System.Windows.Controls
 open MahApps.Metro.Controls
 open PatternRecog
 open PatternRecog.GUI.Views
+open Squirrel
 
 type Model = { config: ConfigType
                descs: DescType array
@@ -52,7 +53,7 @@ let reducer state action =
     | SetAllChecked isChecked -> { state with matches = state.matches |> Array.map (fun m -> m.Checked <- isChecked; m) }
 
 let view (w:MainView) (state:Model) =
-    let l = state.matches |> Seq.ofArray |> System.Collections.Generic.List
+    let l = state.matches |> System.Collections.Generic.List
     let cvs = Windows.Data.CollectionViewSource.GetDefaultView l
     cvs.SortDescriptions.Add(ComponentModel.SortDescription("Season", ComponentModel.ListSortDirection.Ascending))
     cvs.SortDescriptions.Add(ComponentModel.SortDescription("Episode", ComponentModel.ListSortDirection.Ascending))
@@ -62,6 +63,11 @@ let view (w:MainView) (state:Model) =
 [<EntryPoint>]
 [<STAThread>]
 let main argv =
+    use mgr = new UpdateManager(@"C:\Users\theor\Documents\patternrecog\Releases")
+    async {
+        let res = mgr.UpdateApp()
+        return ()
+    }
     let state = { config = Config.loadOrDefault()
                   descs = [||]
                   matches = [||] }
