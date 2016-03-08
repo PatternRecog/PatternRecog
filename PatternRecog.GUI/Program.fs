@@ -53,6 +53,7 @@ let reducer state action =
     | SetAllChecked isChecked -> { state with matches = state.matches |> Array.map (fun m -> m.Checked <- isChecked; m) }
 
 let view (w:MainView) (state:Model) =
+    w.TbVersion.Text <- sprintf "v %s" (System.Reflection.Assembly.GetEntryAssembly().GetName().Version.ToString())
     let l = state.matches |> System.Collections.Generic.List
     let cvs = Windows.Data.CollectionViewSource.GetDefaultView l
     cvs.SortDescriptions.Add(ComponentModel.SortDescription("Season", ComponentModel.ListSortDirection.Ascending))
@@ -63,11 +64,14 @@ let view (w:MainView) (state:Model) =
 [<EntryPoint>]
 [<STAThread>]
 let main argv =
-//    use mgr = new UpdateManager(@"C:\Users\theor\Documents\patternrecog\Releases")
-//    async {
-//        let res = mgr.UpdateApp()
-//        return ()
-//    }
+    try
+        use mgr = new UpdateManager(@"C:\Users\theor\Documents\Visual Studio 2015\Projects\PatternRecog\Releases")
+        async {
+            let! res = mgr.UpdateApp() |> Async.AwaitTask
+            return ()
+        } |> Async.RunSynchronously
+    with
+    | e -> ()
     let state = { config = Config.loadOrDefault()
                   descs = [||]
                   matches = [||] }

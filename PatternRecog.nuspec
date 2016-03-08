@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>PatternRecog</id>
+        <version>1.0.0</version>
+        <authors>theor</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>PatternRecog</description>
+    </metadata>
+    <files>
+        <file src="PatternRecog.GUI\bin\Debug\Chessie.dll" target="lib\net45\Chessie.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\Chessie.pdb" target="lib\net45\Chessie.pdb" />
+        <file src="PatternRecog.GUI\bin\Debug\Chessie.xml" target="lib\net45\Chessie.xml" />
+        <file src="PatternRecog.GUI\bin\Debug\DeltaCompressionDotNet.dll" target="lib\net45\DeltaCompressionDotNet.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\DeltaCompressionDotNet.MsDelta.dll" target="lib\net45\DeltaCompressionDotNet.MsDelta.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\DeltaCompressionDotNet.PatchApi.dll" target="lib\net45\DeltaCompressionDotNet.PatchApi.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\FSharp.Core.dll" target="lib\net45\FSharp.Core.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\FSharp.Core.xml" target="lib\net45\FSharp.Core.xml" />
+        <file src="PatternRecog.GUI\bin\Debug\ICSharpCode.SharpZipLib.dll" target="lib\net45\ICSharpCode.SharpZipLib.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\ICSharpCode.SharpZipLib.xml" target="lib\net45\ICSharpCode.SharpZipLib.xml" />
+        <file src="PatternRecog.GUI\bin\Debug\MahApps.Metro.dll" target="lib\net45\MahApps.Metro.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\MahApps.Metro.pdb" target="lib\net45\MahApps.Metro.pdb" />
+        <file src="PatternRecog.GUI\bin\Debug\MahApps.Metro.xml" target="lib\net45\MahApps.Metro.xml" />
+        <file src="PatternRecog.GUI\bin\Debug\Mono.Cecil.dll" target="lib\net45\Mono.Cecil.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\Mono.Cecil.Mdb.dll" target="lib\net45\Mono.Cecil.Mdb.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\Mono.Cecil.Pdb.dll" target="lib\net45\Mono.Cecil.Pdb.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\Mono.Cecil.Rocks.dll" target="lib\net45\Mono.Cecil.Rocks.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\NuGet.Squirrel.dll" target="lib\net45\NuGet.Squirrel.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\NuGet.Squirrel.pdb" target="lib\net45\NuGet.Squirrel.pdb" />
+        <file src="PatternRecog.GUI\bin\Debug\PatternRecog.dll" target="lib\net45\PatternRecog.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\PatternRecog.GUI.exe" target="lib\net45\PatternRecog.GUI.exe" />
+        <file src="PatternRecog.GUI\bin\Debug\PatternRecog.GUI.exe.config" target="lib\net45\PatternRecog.GUI.exe.config" />
+        <file src="PatternRecog.GUI\bin\Debug\PatternRecog.GUI.pdb" target="lib\net45\PatternRecog.GUI.pdb" />
+        <file src="PatternRecog.GUI\bin\Debug\PatternRecog.GUI.Views.dll" target="lib\net45\PatternRecog.GUI.Views.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\PatternRecog.GUI.Views.pdb" target="lib\net45\PatternRecog.GUI.Views.pdb" />
+        <file src="PatternRecog.GUI\bin\Debug\PatternRecog.GUI.XML" target="lib\net45\PatternRecog.GUI.XML" />
+        <file src="PatternRecog.GUI\bin\Debug\PatternRecog.pdb" target="lib\net45\PatternRecog.pdb" />
+        <file src="PatternRecog.GUI\bin\Debug\PatternRecog.xml" target="lib\net45\PatternRecog.xml" />
+        <file src="PatternRecog.GUI\bin\Debug\Redux.dll" target="lib\net45\Redux.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\Splat.dll" target="lib\net45\Splat.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\Splat.pdb" target="lib\net45\Splat.pdb" />
+        <file src="PatternRecog.GUI\bin\Debug\Squirrel.dll" target="lib\net45\Squirrel.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\Squirrel.pdb" target="lib\net45\Squirrel.pdb" />
+        <file src="PatternRecog.GUI\bin\Debug\System.Reactive.Core.dll" target="lib\net45\System.Reactive.Core.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\System.Reactive.Core.xml" target="lib\net45\System.Reactive.Core.xml" />
+        <file src="PatternRecog.GUI\bin\Debug\System.Reactive.Interfaces.dll" target="lib\net45\System.Reactive.Interfaces.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\System.Reactive.Interfaces.xml" target="lib\net45\System.Reactive.Interfaces.xml" />
+        <file src="PatternRecog.GUI\bin\Debug\System.Reactive.Linq.dll" target="lib\net45\System.Reactive.Linq.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\System.Reactive.Linq.xml" target="lib\net45\System.Reactive.Linq.xml" />
+        <file src="PatternRecog.GUI\bin\Debug\System.Reactive.PlatformServices.dll" target="lib\net45\System.Reactive.PlatformServices.dll" />
+        <file src="PatternRecog.GUI\bin\Debug\System.Reactive.PlatformServices.xml" target="lib\net45\System.Reactive.PlatformServices.xml" />
+        <file src="PatternRecog.GUI\bin\Debug\System.Windows.Interactivity.dll" target="lib\net45\System.Windows.Interactivity.dll" />
+    </files>
+</package>

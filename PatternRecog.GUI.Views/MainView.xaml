@@ -92,6 +92,7 @@
         <controls:FlyoutsControl Grid.Row="0" Grid.RowSpan="2">
             <controls:Flyout x:Name="flyout" Header="Settings" Position="Right" Width="200" Theme="Inverse">
                 <StackPanel Margin="5">
+                    <TextBlock x:Name="TbVersion">Version</TextBlock>
                     <TextBlock>General</TextBlock>
                     <CheckBox>Dry run</CheckBox>
                     <TextBlock>Video extensions</TextBlock>
