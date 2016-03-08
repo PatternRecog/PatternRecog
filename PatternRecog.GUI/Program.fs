@@ -63,11 +63,11 @@ let view (w:MainView) (state:Model) =
 [<EntryPoint>]
 [<STAThread>]
 let main argv =
-    use mgr = new UpdateManager(@"C:\Users\theor\Documents\patternrecog\Releases")
-    async {
-        let res = mgr.UpdateApp()
-        return ()
-    }
+//    use mgr = new UpdateManager(@"C:\Users\theor\Documents\patternrecog\Releases")
+//    async {
+//        let res = mgr.UpdateApp()
+//        return ()
+//    }
     let state = { config = Config.loadOrDefault()
                   descs = [||]
                   matches = [||] }
