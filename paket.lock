@@ -1,0 +1,47 @@
+NUGET
+  remote: https://www.nuget.org/api/v2
+  specs:
+    Chessie (0.4.0) - framework: >= net452
+      FSharp.Core
+    DeltaCompressionDotNet (1.0.0) - framework: >= net452
+    FSharp.Core (3.0.2) - framework: >= net452
+    MahApps.Metro (1.2.4) - framework: >= net452
+    MahApps.Metro.Resources (0.4.0) - framework: >= net452
+      MahApps.Metro (>= 1.0.0)
+    Mono.Cecil (0.9.6.1) - framework: >= net452
+    NuGet.CommandLine (3.3.0)
+    Redux.NET (0.4.0) - framework: >= net452
+      Rx-Main (>= 2.2.5)
+    Rx-Core (2.2.5) - framework: >= net452
+      Rx-Interfaces (>= 2.2.5)
+    Rx-Interfaces (2.2.5) - framework: >= net452
+    Rx-Linq (2.2.5) - framework: >= net452
+      Rx-Core (>= 2.2.5)
+      Rx-Interfaces (>= 2.2.5)
+    Rx-Main (2.2.5) - framework: >= net452
+      Rx-Core (>= 2.2.5)
+      Rx-Interfaces (>= 2.2.5)
+      Rx-Linq (>= 2.2.5)
+      Rx-PlatformServices (>= 2.2.5)
+    Rx-PlatformServices (2.2.5) - framework: >= net452
+      Rx-Core (>= 2.2.5)
+      Rx-Interfaces (>= 2.2.5)
+    Splat (1.6.2) - framework: >= net452
+    squirrel.windows (1.2.5) - framework: >= net452
+      DeltaCompressionDotNet (>= 1.0.0)
+      Mono.Cecil (>= 0.9.6.1)
+      Splat (>= 1.6.2)
+    UnionArgParser (0.6.3) - framework: >= net452
+    xunit (2.1.0) - framework: >= net452
+      xunit.assert (2.1.0)
+      xunit.core (2.1.0)
+    xunit.abstractions (2.0.0) - framework: >= net452
+    xunit.assert (2.1.0) - framework: >= net452
+    xunit.core (2.1.0) - framework: >= net452
+      xunit.extensibility.core (2.1.0) - framework: >= net45, dnx451, dnxcore50, monoandroid, monotouch, portable-net45+win80+wp80+wpa81, xamarinios, winv4.5, wpv8.1, wpv8.0
+      xunit.extensibility.execution (2.1.0) - framework: >= net45, dnx451, dnxcore50, monoandroid, monotouch, portable-net45+win80+wp80+wpa81, xamarinios, winv4.5, wpv8.1, wpv8.0
+    xunit.extensibility.core (2.1.0) - framework: >= net452
+      xunit.abstractions (2.0.0)
+    xunit.extensibility.execution (2.1.0) - framework: >= net452
+      xunit.extensibility.core (2.1.0) - framework: >= net45, dnx451, dnxcore50, monoandroid, monotouch, xamarinios, winv4.5, wpv8.1, wpv8.0
+    xunit.runner.visualstudio (2.1.0) - framework: >= net452

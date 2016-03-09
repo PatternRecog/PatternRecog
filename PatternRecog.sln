@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{7AC492F2-6D50-4730-A253-45F913C0FE5F}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternRecog.Tests", "PatternRecog.Tests\PatternRecog.Tests.csproj", "{FC781042-E40E-4D08-99E7-740FDF00A1F8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{63CD2BAD-6CED-464D-B0E6-772191727D7F} = {63CD2BAD-6CED-464D-B0E6-772191727D7F}
