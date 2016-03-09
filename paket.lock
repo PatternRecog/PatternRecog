@@ -4,6 +4,7 @@ NUGET
     Chessie (0.4.0) - framework: >= net452
       FSharp.Core
     DeltaCompressionDotNet (1.0.0) - framework: >= net452
+    FAKE (4.21.4)
     FSharp.Core (3.0.2) - framework: >= net452
     MahApps.Metro (1.2.4) - framework: >= net452
     MahApps.Metro.Resources (0.4.0) - framework: >= net452
