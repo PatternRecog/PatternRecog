@@ -2,11 +2,14 @@
 #r @"packages/FAKE/tools/FakeLib.dll"
 open Fake
 open Fake.Testing
+open Fake.Squirrel
 
 // Properties
 let buildDir = "./build/"
 let testDir = "./tests/"
+let packagingDir = "./packaging/"
 
+let getVersion() = (FileVersion "./build/PatternRecog.GUI.exe")
 // Targets
 Target "Clean" (fun _ ->
     CleanDirs [buildDir; testDir]
@@ -31,6 +34,24 @@ Target "Test" (fun _ ->
 
 Target "Default" (fun _ ->
     trace "Hello World from FAKE"
+    trace (sprintf "%A" (getVersion()))
+)
+
+Target "CreatePackage" (fun _ ->
+    // Copy all the package files into a package folder
+    // CopyFiles packagingDir (!! "./build/*")
+
+    let buildVersion = getVersion()
+    NuGet (fun p -> 
+        {p with
+            Version = buildVersion
+            Publish = false }) 
+            "PatternRecog.nuspec"
+)
+
+Target "CreateInstaller" (fun _ ->
+    SquirrelPack (fun p -> { p with WorkingDir = None }) (sprintf "./NuGet/PatternRecog.%s.nupkg" (getVersion()))
+
 )
 
 // Dependencies
@@ -39,6 +60,10 @@ Target "Default" (fun _ ->
   ==> "BuildTest"
   ==> "Test"
   ==> "Default"
+  
+"Test"
+  ==> "CreatePackage"
+  ==> "CreateInstaller"
 
 // start build
 RunTargetOrDefault "Default"
