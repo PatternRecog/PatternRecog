@@ -9,3 +9,4 @@ nuget squirrel.windows 1.2.5 framework: >= net452
 nuget UnionArgParser 0.6.3 framework: >= net452
 nuget xunit 2.1.0 framework: >= net452
 nuget xunit.runner.visualstudio 2.1.0 framework: >= net452
+nuget xunit.runner.console

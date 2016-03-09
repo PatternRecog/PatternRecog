@@ -1,19 +1,32 @@
 // include Fake lib
 #r @"packages/FAKE/tools/FakeLib.dll"
 open Fake
+open Fake.Testing
 
 // Properties
 let buildDir = "./build/"
+let testDir = "./tests/"
 
 // Targets
 Target "Clean" (fun _ ->
-    CleanDir buildDir
+    CleanDirs [buildDir; testDir]
 )
 
 Target "BuildApp" (fun _ ->
-    !! "**/*.fsproj"
+    !! "PatternRecog.GUI/PatternRecog.GUI.fsproj"
       |> MSBuildRelease buildDir "Build"
       |> Log "AppBuild-Output: "
+)
+
+Target "BuildTest" (fun _ ->
+    !! "**/*.Tests.csproj"
+      |> MSBuildRelease testDir "Build"
+      |> Log "TestBuild-Output: "
+)
+
+Target "Test" (fun _ ->
+    !! (testDir + "/*.Tests.dll")
+      |> xUnit2 (fun p -> {p with HtmlOutputPath = Some(testDir @@ "PatternRecog.Tests.html")})
 )
 
 Target "Default" (fun _ ->
@@ -23,6 +36,8 @@ Target "Default" (fun _ ->
 // Dependencies
 "Clean"
   ==> "BuildApp"
+  ==> "BuildTest"
+  ==> "Test"
   ==> "Default"
 
 // start build
