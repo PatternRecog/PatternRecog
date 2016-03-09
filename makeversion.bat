@@ -1,0 +1,1 @@
+-v 1.0.1 -t PatternRecog.nuspec  -r Releases --localrepo C:\Users\theor\Documents\PatternRecog.github.io  -n tools\nuget.exe -s packages\squirrel.windows.1.2.5\tools\Squirrel.com
