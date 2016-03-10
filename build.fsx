@@ -17,17 +17,21 @@ let releaseRepoDir = "ReleaseRepo"
 let getVersion() = (FileVersion "./build/PatternRecog.GUI.exe")
 // Targets
 Target "Clean" (fun _ ->
+    !! "**/bin/" |> CleanDirs
     CleanDirs [buildDir; testDir; nugetDir]
 )
 
-Target "BuildApp" (fun _ ->
-    !! "PatternRecog.GUI/PatternRecog.GUI.fsproj"
+Target "Build" (fun _ ->
+    !! "**/*.fsproj"
+    ++ "**/*.csproj"
+    -- "**/*.Tests.csproj"
       |> MSBuildRelease buildDir "Build"
       |> Log "AppBuild-Output: "
 )
 
-Target "BuildTest" (fun _ ->
-    !! "**/*.Tests.csproj"
+Target "BuildTests" (fun _ ->
+    !! "**/*.fsproj"
+    ++ "**/*.Tests.csproj"
       |> MSBuildRelease testDir "Build"
       |> Log "TestBuild-Output: "
 )
@@ -77,8 +81,8 @@ Target "CommitReleases" (fun _ ->
 // Dependencies
 //"Clean"
 //  ==>
-"BuildApp"
-  ==> "BuildTest"
+"Build"
+  ==> "BuildTests"
   ==> "Test"
   ==> "Default"
   
