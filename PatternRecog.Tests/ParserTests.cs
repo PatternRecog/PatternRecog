@@ -13,21 +13,21 @@ namespace PatternRecog.Tests
 
         private readonly string[] _Paths =
         {
-            "C:\\test\\epS01E01.avi",
-            "C:\\test\\ep101.srt",
-            "C:\\test\\epS01E02.avi",
-            "C:\\test\\ep102.srt",
-            "C:\\test\\epS01E10.avi",
-            "C:\\test\\epS01E10.srt",
-            "C:\\test\\epS01E11.avi",
-            "C:\\test\\ep111.srt",
-            "C:\\test\\ep112.avi", // NO DUB
+            "test\\epS01E01.avi",
+            "test\\ep101.srt",
+            "test\\epS01E02.avi",
+            "test\\ep102.srt",
+            "test\\epS01E10.avi",
+            "test\\epS01E10.srt",
+            "test\\epS01E11.avi",
+            "test\\ep111.srt",
+            "test\\ep112.avi", // NO DUB
 
-            "C:\\test\\epS02E01.avi",
-            "C:\\test\\epS02E01.srt",
-            "C:\\test\\ep211.srt", // NO VID
-            "C:\\test\\epS02E12.avi",
-            "C:\\test\\epS02E12.srt",
+            "test\\epS02E01.avi",
+            "test\\epS02E01.srt",
+            "test\\ep211.srt", // NO VID
+            "test\\epS02E12.avi",
+            "test\\epS02E12.srt",
         };
 
         private static IEnumerable<string> Generate(int seed, int nb = 10)
@@ -109,7 +109,9 @@ namespace PatternRecog.Tests
         [Fact]
         public void GenFiles()
         {
-            foreach (var file in Directory.EnumerateFiles(@"C:\test"))
+            if (!Directory.Exists("test"))
+                Directory.CreateDirectory("test");
+            foreach (var file in Directory.EnumerateFiles(@"test"))
             {
                 File.Delete(file);
             }
