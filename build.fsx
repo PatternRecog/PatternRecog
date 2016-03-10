@@ -8,6 +8,7 @@ open Fake.Git
 // Properties
 let buildDir = "./build/"
 let testDir = "./tests/"
+let nugetDir = "./Nuget"
 let packagingDir = "./packaging/"
 
 let releaseRepo = "git@github.com:PatternRecog/PatternRecog.github.io.git"
@@ -16,7 +17,7 @@ let releaseRepoDir = "ReleaseRepo"
 let getVersion() = (FileVersion "./build/PatternRecog.GUI.exe")
 // Targets
 Target "Clean" (fun _ ->
-    CleanDirs [buildDir; testDir]
+    CleanDirs [buildDir; testDir; nugetDir]
 )
 
 Target "BuildApp" (fun _ ->
@@ -44,7 +45,7 @@ Target "Default" (fun _ ->
 Target "CreatePackage" (fun _ ->
     // Copy all the package files into a package folder
     // CopyFiles packagingDir (!! "./build/*")
-    CreateDir "Nuget"
+    CreateDir nugetDir
     let buildVersion = getVersion()
     NuGet (fun p -> 
         {p with
