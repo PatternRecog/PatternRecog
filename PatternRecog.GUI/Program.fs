@@ -60,18 +60,22 @@ let view (w:MainView) (state:Model) =
     cvs.SortDescriptions.Add(ComponentModel.SortDescription("Episode", ComponentModel.ListSortDirection.Ascending))
     w.DataGrid.ItemsSource <- cvs
 
-
+let canUpdate() =
+    try
+        use mgr = new UpdateManager(@"http://patternrecog.github.io/Releases/")
+        async {
+            let! res = mgr.UpdateApp() |> Async.AwaitTask
+            return Option.ofObj res
+        } |> Async.RunSynchronously
+    with
+    | e -> None
 [<EntryPoint>]
 [<STAThread>]
 let main argv =
-    try
-        use mgr = new UpdateManager(@"C:\Users\theor\Documents\Visual Studio 2015\Projects\PatternRecog\Releases")
-        async {
-            let! res = mgr.UpdateApp() |> Async.AwaitTask
-            return ()
-        } |> Async.RunSynchronously
-    with
-    | e -> ()
+    let update = canUpdate()
+    match update with
+    | None -> ()
+    | Some release -> UpdateManager.RestartApp ()
     let state = { config = Config.loadOrDefault()
                   descs = [||]
                   matches = [||] }
